@@ -4,13 +4,13 @@ import { Copyright, ArrowRight } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="relative w-full h-[1348px] bg-black overflow-hidden flex flex-col items-center justify-end">
+    <footer className="relative w-full h-[1348px] bg-transparent overflow-hidden flex flex-col items-center justify-end">
       {/* Background Image with Fade Mask */}
       <div 
         className="absolute inset-0 z-0"
         style={{
-          WebkitMaskImage: "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 21%, rgba(0,0,0,1) 100%)",
-          maskImage: "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 21%, rgba(0,0,0,1) 100%)"
+          WebkitMaskImage: "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 2%, rgba(0,0,0,0) 4%, rgba(0,0,0,0.02) 5%, rgba(0,0,0,0.04) 7%, rgba(0,0,0,0.07) 9%, rgba(0,0,0,0.13) 10%, rgba(0,0,0,0.2) 12%, rgba(0,0,0,0.3) 14%, rgba(0,0,0,0.42) 16%, rgba(0,0,0,0.58) 17%, rgba(0,0,0,0.77) 19%, rgba(0,0,0,1) 21%, rgba(0,0,0,1) 100%)",
+          maskImage: "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 2%, rgba(0,0,0,0) 4%, rgba(0,0,0,0.02) 5%, rgba(0,0,0,0.04) 7%, rgba(0,0,0,0.07) 9%, rgba(0,0,0,0.13) 10%, rgba(0,0,0,0.2) 12%, rgba(0,0,0,0.3) 14%, rgba(0,0,0,0.42) 16%, rgba(0,0,0,0.58) 17%, rgba(0,0,0,0.77) 19%, rgba(0,0,0,1) 21%, rgba(0,0,0,1) 100%)"
         }}
       >
         <Image 
@@ -45,16 +45,16 @@ export function Footer() {
               </span>
               <div className="flex flex-row items-center gap-[24px]">
                 <Link href="#" className="hover:scale-110 hover:opacity-80 transition-all duration-200">
-                  <Image src="/images/icon_linkedin.svg" alt="LinkedIn" width={20} height={20} className="w-[20px] h-[20px]" />
+                  <Image src="/images/icon_linkedin.svg" alt="LinkedIn" width={25} height={25} className="w-[25px] h-[25px]" />
                 </Link>
                 <Link href="#" className="hover:scale-110 hover:opacity-80 transition-all duration-200">
-                  <Image src="/images/icon_twitter.svg" alt="Twitter" width={20} height={20} className="w-[20px] h-[20px]" />
+                  <Image src="/images/icon_twitter.svg" alt="Twitter" width={25} height={25} className="w-[25px] h-[25px]" />
                 </Link>
                 <Link href="#" className="hover:scale-110 hover:opacity-80 transition-all duration-200">
-                  <Image src="/images/icon_instagram.svg" alt="Instagram" width={20} height={20} className="w-[20px] h-[20px]" />
+                  <Image src="/images/icon_instagram.svg" alt="Instagram" width={25} height={25} className="w-[25px] h-[25px]" />
                 </Link>
                 <Link href="#" className="hover:scale-110 hover:opacity-80 transition-all duration-200">
-                  <Image src="/images/icon_facebook.svg" alt="Facebook" width={20} height={20} className="w-[20px] h-[20px]" />
+                  <Image src="/images/icon_facebook.svg" alt="Facebook" width={25} height={25} className="w-[25px] h-[25px]" />
                 </Link>
               </div>
             </div>
