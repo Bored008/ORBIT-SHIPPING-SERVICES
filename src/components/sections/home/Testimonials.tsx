@@ -50,7 +50,7 @@ export function Testimonials() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full flex justify-center py-[120px] bg-white overflow-hidden">
+    <section ref={sectionRef} className="w-full flex justify-center py-[60px] bg-white overflow-hidden">
       <div className="w-full max-w-[1320px] flex flex-col gap-[64px] items-center">
         
         {/* Header Container */}

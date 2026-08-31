@@ -87,8 +87,8 @@ export function Services() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full flex justify-center py-[120px] bg-white">
-      <div className="w-[1320px] flex flex-col gap-[32px]">
+    <section ref={sectionRef} className="w-full flex justify-center py-[60px] bg-white overflow-hidden">
+      <div className="w-[1320px] flex flex-col gap-[64px]">
         
         {/* Header Container */}
         <div ref={headerRef} className="w-full flex flex-row justify-between items-end">
