@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,7 +37,7 @@ export function QuoteForm() {
   return (
     <section 
       ref={containerRef}
-      className="w-full max-w-[1440px] mx-auto flex flex-row items-start justify-between"
+      className="w-full max-w-[1440px] mx-auto flex flex-row items-stretch justify-between"
       style={{
         padding: "0px 60px",
         gap: "81px",
@@ -112,16 +113,16 @@ export function QuoteForm() {
         {/* Social Icons */}
         <div className="flex flex-row items-center gap-[24px]">
           <Link href="#" className="hover:opacity-70 transition-opacity">
-            <Image src="/images/icon_linkedin.svg" alt="LinkedIn" width={25} height={25} />
+            <Image src="/images/icon_linkedin_blue.svg" alt="LinkedIn" width={25} height={25} />
           </Link>
           <Link href="#" className="hover:opacity-70 transition-opacity">
-            <Image src="/images/icon_twitter.svg" alt="Twitter" width={25} height={25} />
+            <Image src="/images/icon_twitter_blue.svg" alt="Twitter" width={25} height={25} />
           </Link>
           <Link href="#" className="hover:opacity-70 transition-opacity">
-            <Image src="/images/icon_instagram.svg" alt="Instagram" width={25} height={25} />
+            <Image src="/images/icon_instagram_blue.svg" alt="Instagram" width={25} height={25} />
           </Link>
           <Link href="#" className="hover:opacity-70 transition-opacity">
-            <Image src="/images/icon_facebook.svg" alt="Facebook" width={25} height={25} />
+            <Image src="/images/icon_facebook_blue.svg" alt="Facebook" width={25} height={25} />
           </Link>
         </div>
       </div>
@@ -204,16 +205,11 @@ export function QuoteForm() {
             }}
           >
             <span className="font-sans font-normal text-[14px]">Request Call</span>
-            <Image 
-              src="/images/right_arrow.svg" 
-              alt="Request Call" 
-              width={17} 
-              height={17} 
-              className="w-[17px] h-[17px] brightness-0 invert group-hover:translate-x-0.5 transition-transform duration-200"
-            />
+            <ArrowRight className="w-[17px] h-[17px] text-white group-hover:translate-x-0.5 transition-transform duration-200" />
           </button>
         </form>
       </div>
     </section>
   );
 }
+
