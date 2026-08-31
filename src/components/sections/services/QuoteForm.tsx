@@ -143,8 +143,8 @@ export function QuoteForm() {
             </label>
             <input 
               type="text" 
-              placeholder="|" 
-              className="w-full bg-[#FFFFFF] border-[1px] border-[#067ACC] rounded-[12px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] outline-none font-sans font-normal text-[16px] text-[#9CA3AF] placeholder:text-[#9CA3AF] px-[16px] py-[14px] focus:ring-2 focus:ring-blue-200 transition-all"
+              placeholder="Enter Your Name" 
+              className="w-full bg-[#FFFFFF] border-[1px] border-transparent rounded-[12px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] outline-none font-sans font-normal text-[16px] text-[#9CA3AF] placeholder:text-[#9CA3AF] px-[16px] py-[14px] focus:border-[#067ACC] focus:ring-2 focus:ring-blue-200 transition-all"
             />
           </div>
 
