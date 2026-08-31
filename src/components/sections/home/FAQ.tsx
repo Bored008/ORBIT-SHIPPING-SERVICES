@@ -74,7 +74,7 @@ export function FAQ() {
             Common <span className="text-[#067ACC] font-bold">Questions</span>
           </h2>
           <p className="font-sans font-normal text-[18px] leading-[1.16em] text-center text-[rgba(0,0,0,0.75)] max-w-[600px]">
-            Everything you need to know about shipping with Orbit — and if it's not here, we're one message away
+            Everything you need to know about shipping with Orbit — and if it&apos;s not here, we&apos;re one message away
           </p>
         </div>
 
