@@ -25,13 +25,19 @@ export const metadata: Metadata = {
   description: "Your Complete Logistics Partner",
 };
 
+import { SmoothScroll } from "@/components/SmoothScroll";
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
       className={`${geist.variable} ${oswald.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+      <body className="min-h-full flex flex-col font-sans">
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
+      </body>
     </html>
   );
 }
