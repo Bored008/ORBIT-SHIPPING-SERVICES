@@ -109,14 +109,14 @@ export function Navbar() {
 
               <span className="relative z-10">{link.label}</span>
               
-              {/* Arrow for specific links (e.g., Services) when inactive */}
-              {link.hasArrow && !active && (
+              {/* Arrow for specific links (e.g., Services) */}
+              {link.hasArrow && (
                 <Image
                   src="/images/right_arrow.svg"
                   alt="Right Arrow"
                   width={18}
                   height={18}
-                  className="w-[18px] h-[18px] relative z-10 group-hover:translate-x-1 transition-transform duration-200"
+                  className={`w-[18px] h-[18px] relative z-10 group-hover:translate-x-1 transition-transform duration-200 ${active ? "invert brightness-0" : ""}`}
                 />
               )}
             </Link>
