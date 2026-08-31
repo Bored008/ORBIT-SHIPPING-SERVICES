@@ -59,7 +59,7 @@ export function FAQ() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full flex justify-center pt-[60px] pb-[120px] bg-white overflow-hidden">
+    <section ref={sectionRef} className="relative w-full flex justify-center bg-white overflow-hidden">
       
       {/* Decorative Background Image */}
       <div className="absolute right-[-100px] bottom-[100px] w-[801px] h-[416px] pointer-events-none opacity-40 z-0">

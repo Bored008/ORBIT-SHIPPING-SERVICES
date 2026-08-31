@@ -162,7 +162,7 @@ export function TrackRecord() {
   }, []);
 
   return (
-    <section className="w-full flex justify-center pt-[120px] pb-[60px] bg-white">
+    <section className="w-full flex justify-center bg-white">
       <div
         ref={containerRef}
         className="w-[1216px] flex flex-row justify-center items-start gap-[144px]"
