@@ -37,11 +37,10 @@ export function Testimonials() {
             start: "top 75%",
             toggleActions: "play none none reverse",
           },
-          x: "100vw", // Slides in from the right corner
-          y: 0,
+          x: 400, // Slide in from right (like a train arriving)
           opacity: 0,
           duration: 1.2,
-          stagger: 0.2,
+          stagger: 0.15,
           ease: "power3.out",
         });
       }
@@ -84,87 +83,91 @@ export function Testimonials() {
         <div ref={cardsRef} className="relative w-full flex flex-row justify-center items-center gap-[32px]">
           
           {/* Card 1: Kanan */}
-          <div 
-            className="flex flex-col justify-between p-[48px_32px] w-[418px] h-[500px] bg-[#FFFFFF] rounded-[24px] group hover:scale-[1.02] transition-transform duration-300"
-            style={{
-              border: "0.8px solid #067ACC",
-              boxShadow: "0px 1px 2px 0px rgba(0, 0, 0, 0.05)"
-            }}
-          >
-            <div className="flex flex-col gap-[32px]">
-              {/* Profile Header */}
-              <div className="flex flex-row justify-between items-center">
-                <div className="flex flex-row items-center gap-[12px]">
-                  <Image src="/images/kanan-4a0be7.png" alt="Kanan" width={48} height={48} className="rounded-full object-cover w-[48px] h-[48px]" />
-                  <div className="flex flex-col">
-                    <span className="font-sans font-semibold text-[16px] leading-[24px] text-[#111827]">Kanan</span>
-                    <span className="font-sans font-normal text-[14px] leading-[20px] text-[rgba(0,0,0,0.75)]">Supply Chain Manager</span>
+          <div className="relative w-[418px] h-[500px]">
+            <div 
+              className="flex flex-col justify-between p-[48px_32px] w-full h-full bg-[#FFFFFF] rounded-[24px] group hover:scale-[1.02] transition-transform duration-300"
+              style={{
+                border: "0.8px solid #067ACC",
+                boxShadow: "0px 1px 2px 0px rgba(0, 0, 0, 0.05)"
+              }}
+            >
+              <div className="flex flex-col gap-[32px]">
+                {/* Profile Header */}
+                <div className="flex flex-row justify-between items-center">
+                  <div className="flex flex-row items-center gap-[12px]">
+                    <Image src="/images/kanan-4a0be7.png" alt="Kanan" width={48} height={48} className="rounded-full object-cover w-[48px] h-[48px]" />
+                    <div className="flex flex-col">
+                      <span className="font-sans font-semibold text-[16px] leading-[24px] text-[#111827]">Kanan</span>
+                      <span className="font-sans font-normal text-[14px] leading-[20px] text-[rgba(0,0,0,0.75)]">Supply Chain Manager</span>
+                    </div>
+                  </div>
+                  <div className="flex justify-center items-center w-[32px] h-[32px] bg-[#F9FAFB] rounded-full">
+                    <Image src="/images/twitter_blue.svg" alt="Twitter" width={16} height={16} />
                   </div>
                 </div>
-                <div className="flex justify-center items-center w-[32px] h-[32px] bg-[#F9FAFB] rounded-full">
-                  <Image src="/images/twitter_blue.svg" alt="Twitter" width={16} height={16} />
-                </div>
+                
+                {/* Text */}
+                <p className="font-sans font-normal text-[14px] leading-[22.75px] text-[#4B5563] pr-[16px]">
+                  Orbit Shipping Services made our international logistics a breeze! Their team handled everything seamlessly, ensuring our shipments arrived on time every time. Highly recommended!.
+                </p>
               </div>
-              
-              {/* Text */}
-              <p className="font-sans font-normal text-[14px] leading-[22.75px] text-[#4B5563] pr-[16px]">
-                Orbit Shipping Services made our international logistics a breeze! Their team handled everything seamlessly, ensuring our shipments arrived on time every time. Highly recommended!.
-              </p>
-            </div>
 
-            {/* Footer */}
-            <div className="flex flex-row justify-between items-center border-t border-gray-100 pt-[16px]">
-              <div className="flex flex-row gap-[4px]">
-                {[...Array(5)].map((_, i) => (
-                  <Image key={i} src="/images/star.svg" alt="Star" width={20} height={20} />
-                ))}
+              {/* Footer */}
+              <div className="flex flex-row justify-between items-center border-t border-gray-100 pt-[16px]">
+                <div className="flex flex-row gap-[4px]">
+                  {[...Array(5)].map((_, i) => (
+                    <Image key={i} src="/images/star.svg" alt="Star" width={20} height={20} />
+                  ))}
+                </div>
+                <span className="font-sans font-medium text-[14px] leading-[20px] text-[#6B7280]">
+                  03/15/2025
+                </span>
               </div>
-              <span className="font-sans font-medium text-[14px] leading-[20px] text-[#6B7280]">
-                03/15/2025
-              </span>
             </div>
           </div>
 
           {/* Card 2: Amar (Video Background) */}
-          <div 
-            className="relative flex flex-col justify-between p-[32px] w-[418px] h-[500px] rounded-[24px] overflow-hidden group hover:scale-[1.02] transition-transform duration-300"
-            style={{
-              border: "0.8px solid #067ACC"
-            }}
-          >
-            {/* Background Image */}
-            <div className="absolute inset-0 z-0">
-              <Image src="/images/amar_bg.png" alt="Amar Video Background" fill className="object-cover" />
-            </div>
+          <div className="relative w-[418px] h-[500px]">
+            <div 
+              className="relative flex flex-col justify-between p-[32px] w-full h-full rounded-[24px] overflow-hidden group hover:scale-[1.02] transition-transform duration-300"
+              style={{
+                border: "0.8px solid #067ACC"
+              }}
+            >
+              {/* Background Image */}
+              <div className="absolute inset-0 z-0">
+                <Image src="/images/amar_bg.png" alt="Amar Video Background" fill className="object-cover" />
+              </div>
 
-            {/* Header */}
-            <div className="relative z-10 flex flex-row justify-between items-start">
-              <div className="flex flex-col">
-                <span className="font-sans font-semibold text-[18px] leading-[28px] text-[#000000]">Amar</span>
-                <span className="font-sans font-normal text-[14px] leading-[20px] text-[rgba(0,0,0,0.75)]">Logistics Director</span>
+              {/* Header */}
+              <div className="relative z-10 flex flex-row justify-between items-start">
+                <div className="flex flex-col">
+                  <span className="font-sans font-semibold text-[18px] leading-[28px] text-[#000000]">Amar</span>
+                  <span className="font-sans font-normal text-[14px] leading-[20px] text-[rgba(0,0,0,0.75)]">Logistics Director</span>
+                </div>
+                <div className="flex justify-center items-center w-[32px] h-[32px] bg-[rgba(255,255,255,0.2)] backdrop-blur-[2px] rounded-full">
+                  <Image src="/images/twitter_white.svg" alt="Twitter" width={16} height={16} />
+                </div>
               </div>
-              <div className="flex justify-center items-center w-[32px] h-[32px] bg-[rgba(255,255,255,0.2)] backdrop-blur-[2px] rounded-full">
-                <Image src="/images/twitter_white.svg" alt="Twitter" width={16} height={16} />
-              </div>
-            </div>
 
-            {/* Play Button */}
-            <div className="absolute inset-0 flex justify-center items-center z-10 pointer-events-none">
-              <div className="flex justify-center items-center w-[64px] h-[64px] bg-[#FFFFFF] rounded-full shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] pointer-events-auto cursor-pointer hover:scale-110 active:scale-95 transition-transform duration-200">
-                <Image src="/images/play_icon.svg" alt="Play" width={18} height={24} className="ml-[4px]" />
+              {/* Play Button */}
+              <div className="absolute inset-0 flex justify-center items-center z-10 pointer-events-none">
+                <div className="flex justify-center items-center w-[64px] h-[64px] bg-[#FFFFFF] rounded-full shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] pointer-events-auto cursor-pointer hover:scale-110 active:scale-95 transition-transform duration-200">
+                  <Image src="/images/play_icon.svg" alt="Play" width={18} height={24} className="ml-[4px]" />
+                </div>
               </div>
-            </div>
 
-            {/* Footer */}
-            <div className="relative z-10 flex flex-row justify-between items-end mt-auto">
-              <div className="flex flex-row gap-[4px] drop-shadow-[0_4px_3px_rgba(0,0,0,0.07)]">
-                {[...Array(5)].map((_, i) => (
-                  <Image key={i} src="/images/star.svg" alt="Star" width={20} height={20} />
-                ))}
+              {/* Footer */}
+              <div className="relative z-10 flex flex-row justify-between items-end mt-auto">
+                <div className="flex flex-row gap-[4px] drop-shadow-[0_4px_3px_rgba(0,0,0,0.07)]">
+                  {[...Array(5)].map((_, i) => (
+                    <Image key={i} src="/images/star.svg" alt="Star" width={20} height={20} />
+                  ))}
+                </div>
+                <span className="font-sans font-medium text-[14px] leading-[20px] text-[#E5E7EB] drop-shadow-md">
+                  09/30/2024
+                </span>
               </div>
-              <span className="font-sans font-medium text-[14px] leading-[20px] text-[#E5E7EB] drop-shadow-md">
-                09/30/2024
-              </span>
             </div>
           </div>
 
