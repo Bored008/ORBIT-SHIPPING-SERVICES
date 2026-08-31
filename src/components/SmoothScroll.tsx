@@ -9,3 +9,4 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     </ReactLenis>
   );
 }
+
