@@ -31,7 +31,7 @@ export function Footer() {
         <div className="w-full flex flex-row justify-between items-end">
           
           {/* Logo & Socials */}
-          <div className="flex flex-col gap-[32px] w-[287px]">
+          <div className="flex flex-col gap-[32px] w-max">
             <div className="py-[6px]">
               <Image 
                 src="/images/footer_logo.svg" 
@@ -43,7 +43,7 @@ export function Footer() {
             </div>
             
             <div className="flex flex-row items-center gap-[20px]">
-              <span className="font-sans font-normal text-[16px] leading-[19.2px] tracking-[-0.02em] text-white">
+              <span className="font-sans font-normal text-[16px] leading-[19.2px] tracking-[-0.02em] text-white whitespace-nowrap">
                 Follow us on :
               </span>
               <div className="flex flex-row items-center gap-[24px]">
