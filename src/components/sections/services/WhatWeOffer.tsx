@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
@@ -54,6 +54,7 @@ const CARDS = [
 ];
 
 export function WhatWeOffer() {
+  const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
 
@@ -161,55 +162,67 @@ export function WhatWeOffer() {
         className="w-full grid grid-cols-3 gap-[20px]"
       >
         {CARDS.map((card, index) => {
-          const isBlue = card.theme === "blue";
+          const isActive = activeIndex === index;
+          const bgGradient = card.gradient || "linear-gradient(180deg, rgba(255, 255, 255, 0.15) 1%, rgba(255, 255, 255, 0.15) 12%, rgba(180, 215, 240, 0.16) 36%, rgba(6, 122, 204, 0.17) 100%)";
           
           return (
             <div 
               key={index}
-              className="flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300"
+              onClick={() => setActiveIndex(index)}
+              className="relative overflow-hidden flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300 cursor-pointer group"
               style={{
                 width: "100%",
                 height: "309.5px",
-                padding: "32px 54px",
-                background: isBlue ? "#067ACC" : card.gradient,
                 borderRadius: "24px",
-                border: "0.5px solid rgba(0, 0, 0, 0.23)",
+                border: isActive ? "0.5px solid transparent" : "0.5px solid rgba(0, 0, 0, 0.23)",
               }}
             >
-              {/* Icon */}
-              <div>
-                <Image 
-                  src={card.icon}
-                  alt={card.title}
-                  width={63}
-                  height={63}
-                  className={`w-[63px] h-[63px] ${isBlue ? "" : "brightness-0"}`}
-                />
-              </div>
+              {/* Inactive Gradient Background */}
+              <div 
+                className="absolute inset-0 z-0"
+                style={{ background: bgGradient }}
+              />
 
-              {/* Text Content */}
-              <div className="flex flex-col gap-[13px]">
-                <h3 
-                  className="font-sans font-medium"
-                  style={{
-                    fontSize: card.title.length > 28 ? "29px" : "32px",
-                    lineHeight: "1.16em",
-                    letterSpacing: card.title.length > 28 ? "-0.0259em" : "-0.0234em",
-                    color: isBlue ? "#FFFFFF" : "#000000",
-                  }}
-                >
-                  {card.title}
-                </h3>
-                <p 
-                  className="font-sans font-normal"
-                  style={{
-                    fontSize: "16px",
-                    lineHeight: "1.16em",
-                    color: isBlue ? "rgba(255, 255, 255, 0.75)" : "rgba(0, 0, 0, 0.75)",
-                  }}
-                >
-                  {card.desc}
-                </p>
+              {/* Active Blue Background */}
+              <div 
+                className={`absolute inset-0 z-0 bg-[#067ACC] transition-opacity duration-500 ease-in-out ${isActive ? "opacity-100" : "opacity-0"}`}
+              />
+
+              {/* Content Wrapper */}
+              <div className="relative z-10 flex flex-col justify-between h-full w-full" style={{ padding: "32px 54px" }}>
+                {/* Icon */}
+                <div>
+                  <Image 
+                    src={card.icon}
+                    alt={card.title}
+                    width={63}
+                    height={63}
+                    className={`w-[63px] h-[63px] transition-all duration-500 ${isActive ? "" : "brightness-0"}`}
+                  />
+                </div>
+
+                {/* Text Content */}
+                <div className="flex flex-col gap-[13px]">
+                  <h3 
+                    className={`font-sans font-medium transition-colors duration-500 ${isActive ? "text-white" : "text-[#000000]"}`}
+                    style={{
+                      fontSize: card.title.length > 28 ? "29px" : "32px",
+                      lineHeight: "1.16em",
+                      letterSpacing: card.title.length > 28 ? "-0.0259em" : "-0.0234em",
+                    }}
+                  >
+                    {card.title}
+                  </h3>
+                  <p 
+                    className={`font-sans font-normal transition-colors duration-500 ${isActive ? "text-[rgba(255,255,255,0.75)]" : "text-[rgba(0,0,0,0.75)]"}`}
+                    style={{
+                      fontSize: "16px",
+                      lineHeight: "1.16em",
+                    }}
+                  >
+                    {card.desc}
+                  </p>
+                </div>
               </div>
             </div>
           );
