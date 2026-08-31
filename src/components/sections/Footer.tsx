@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Linkedin, Twitter, Instagram, Facebook, Copyright, ArrowRight } from "lucide-react";
+import { Copyright, ArrowRight } from "lucide-react";
 
 export function Footer() {
   return (
@@ -44,17 +44,17 @@ export function Footer() {
                 Follow us on :
               </span>
               <div className="flex flex-row items-center gap-[24px]">
-                <Link href="#" className="text-white hover:text-[#067ACC] transition-colors duration-200 hover:scale-110">
-                  <Linkedin className="w-[20px] h-[20px] fill-current" />
+                <Link href="#" className="hover:scale-110 hover:opacity-80 transition-all duration-200">
+                  <Image src="/images/icon_linkedin.svg" alt="LinkedIn" width={20} height={20} className="w-[20px] h-[20px]" />
                 </Link>
-                <Link href="#" className="text-white hover:text-[#067ACC] transition-colors duration-200 hover:scale-110">
-                  <Twitter className="w-[20px] h-[20px] fill-current" />
+                <Link href="#" className="hover:scale-110 hover:opacity-80 transition-all duration-200">
+                  <Image src="/images/icon_twitter.svg" alt="Twitter" width={20} height={20} className="w-[20px] h-[20px]" />
                 </Link>
-                <Link href="#" className="text-white hover:text-[#067ACC] transition-colors duration-200 hover:scale-110">
-                  <Instagram className="w-[20px] h-[20px]" />
+                <Link href="#" className="hover:scale-110 hover:opacity-80 transition-all duration-200">
+                  <Image src="/images/icon_instagram.svg" alt="Instagram" width={20} height={20} className="w-[20px] h-[20px]" />
                 </Link>
-                <Link href="#" className="text-white hover:text-[#067ACC] transition-colors duration-200 hover:scale-110">
-                  <Facebook className="w-[20px] h-[20px] fill-current" />
+                <Link href="#" className="hover:scale-110 hover:opacity-80 transition-all duration-200">
+                  <Image src="/images/icon_facebook.svg" alt="Facebook" width={20} height={20} className="w-[20px] h-[20px]" />
                 </Link>
               </div>
             </div>
@@ -142,3 +142,4 @@ export function Footer() {
     </footer>
   );
 }
+
