@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/services/Hero";
 import { Intro } from "@/components/sections/services/Intro";
 import { WhatWeOffer } from "@/components/sections/services/WhatWeOffer";
+import { QuoteForm } from "@/components/sections/services/QuoteForm";
 
 export default function ServicesPage() {
   return (
@@ -8,6 +9,7 @@ export default function ServicesPage() {
       <Hero />
       <Intro />
       <WhatWeOffer />
+      <QuoteForm />
     </main>
   );
 }
