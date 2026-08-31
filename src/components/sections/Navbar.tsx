@@ -24,7 +24,7 @@ export function Navbar() {
       className="flex justify-between items-center w-full max-w-[1320px] mx-auto h-[70px]"
     >
       {/* Logo */}
-      <Link href="/">
+      <Link href="/" className="hover:opacity-80 transition-opacity">
         <Image
           src="/images/logo.svg"
           alt="Orbit Logo"
@@ -49,13 +49,11 @@ export function Navbar() {
       >
         <Link
           href="/"
-          className="flex justify-center items-center"
+          className="flex justify-center items-center hover:opacity-80 hover:scale-105 transition-all duration-200 active:scale-95 bg-[#000000] text-[#FFFFFF]"
           style={{
             padding: "8px 12px",
             gap: "10px",
-            backgroundColor: "#000000",
             borderRadius: "25px",
-            color: "#FFFFFF",
             fontSize: "16px",
             lineHeight: "1.16em",
           }}
@@ -64,10 +62,9 @@ export function Navbar() {
         </Link>
         <Link
           href="/services"
-          className="flex items-center"
+          className="flex items-center text-[rgba(0,0,0,0.55)] hover:!text-black hover:opacity-100 transition-colors duration-200 group"
           style={{
             gap: "4px",
-            color: "rgba(0, 0, 0, 0.55)",
             fontSize: "16px",
             lineHeight: "1.16em",
           }}
@@ -78,13 +75,13 @@ export function Navbar() {
             alt="Right Arrow"
             width={18}
             height={18}
-            className="w-[18px] h-[18px]"
+            className="w-[18px] h-[18px] group-hover:translate-x-1 transition-transform duration-200"
           />
         </Link>
         <Link
           href="/about"
+          className="text-[rgba(0,0,0,0.55)] hover:!text-black hover:opacity-100 transition-colors duration-200"
           style={{
-            color: "rgba(0, 0, 0, 0.55)",
             fontSize: "16px",
             lineHeight: "1.16em",
           }}
@@ -93,8 +90,8 @@ export function Navbar() {
         </Link>
         <Link
           href="/careers"
+          className="text-[rgba(0,0,0,0.55)] hover:!text-black hover:opacity-100 transition-colors duration-200"
           style={{
-            color: "rgba(0, 0, 0, 0.55)",
             fontSize: "16px",
             lineHeight: "1.16em",
           }}
@@ -103,8 +100,8 @@ export function Navbar() {
         </Link>
         <Link
           href="/tools"
+          className="text-[rgba(0,0,0,0.55)] hover:!text-black hover:opacity-100 transition-colors duration-200"
           style={{
-            color: "rgba(0, 0, 0, 0.55)",
             fontSize: "16px",
             lineHeight: "1.16em",
           }}
@@ -116,11 +113,10 @@ export function Navbar() {
       {/* Contact Button */}
       <Link
         href="/contact"
-        className="flex justify-center items-center"
+        className="flex justify-center items-center bg-[#000000] hover:bg-gray-800 hover:scale-105 transition-all duration-200 active:scale-95 group text-[#FFFFFF]"
         style={{
           padding: "7px 14px",
           gap: "6px",
-          backgroundColor: "#000000",
           borderRadius: "23px",
         }}
       >
@@ -129,11 +125,10 @@ export function Navbar() {
           alt="Phone"
           width={18}
           height={18}
-          className="w-[18px] h-[18px]"
+          className="w-[18px] h-[18px] group-hover:scale-110 transition-transform duration-200"
         />
         <span
           style={{
-            color: "#FFFFFF",
             fontSize: "16px",
           }}
         >
@@ -143,4 +138,3 @@ export function Navbar() {
     </div>
   );
 }
-

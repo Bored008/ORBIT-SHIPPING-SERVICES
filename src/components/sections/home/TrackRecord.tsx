@@ -33,6 +33,7 @@ function Counter({
       scrollTrigger: {
         trigger: nodeRef.current,
         start: "top 75%",
+        toggleActions: "play none none reverse",
       },
       onUpdate: () => {
         if (nodeRef.current) {
@@ -64,6 +65,7 @@ function AnimatedChart() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 75%",
+          toggleActions: "play none none reverse",
         }
       });
       
@@ -117,6 +119,7 @@ export function TrackRecord() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 75%",
+          toggleActions: "play none none reverse",
         },
         y: 40,
         opacity: 0,
@@ -130,6 +133,7 @@ export function TrackRecord() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 75%",
+          toggleActions: "play none none reverse",
         },
         y: 40,
         opacity: 0,
@@ -143,6 +147,7 @@ export function TrackRecord() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 75%",
+          toggleActions: "play none none reverse",
         },
         y: 30,
         opacity: 0,
@@ -194,13 +199,11 @@ export function TrackRecord() {
             <div className="track-left-item flex items-start">
               <Link
                 href="/quote"
-                className="flex justify-center items-center font-sans font-normal"
+                className="flex justify-center items-center font-sans font-normal bg-[#000000] hover:bg-gray-800 text-[#FFFFFF] hover:scale-105 active:scale-95 transition-all duration-200 group"
                 style={{
-                  backgroundColor: "#000000",
                   borderRadius: "23px",
                   padding: "7px 14px",
                   gap: "4px",
-                  color: "#FFFFFF",
                   fontSize: "14px",
                 }}
               >
@@ -210,7 +213,7 @@ export function TrackRecord() {
                   alt="Arrow Right"
                   width={17}
                   height={17}
-                  className="w-[17px] h-[17px]"
+                  className="w-[17px] h-[17px] group-hover:translate-x-1 transition-transform duration-200"
                 />
               </Link>
             </div>

@@ -123,13 +123,11 @@ export function Hero() {
           >
             <Link
               href="/quote"
-              className="flex justify-center items-center font-sans"
+              className="flex justify-center items-center font-sans bg-[#067ACC] hover:bg-blue-600 text-[#FFFFFF] hover:scale-105 active:scale-95 transition-all duration-200"
               style={{
-                backgroundColor: "#067ACC",
                 borderRadius: "23px",
                 padding: "7px 14px",
                 gap: "4px",
-                color: "#FFFFFF",
                 fontSize: "14px",
               }}
             >
@@ -138,15 +136,13 @@ export function Hero() {
 
             <Link
               href="/services"
-              className="flex justify-center items-center font-sans"
+              className="flex justify-center items-center font-sans bg-[rgba(255,255,255,0.03)] hover:bg-white/20 text-[#FFFFFF] hover:scale-105 active:scale-95 transition-all duration-200 group"
               style={{
-                backgroundColor: "rgba(255, 255, 255, 0.03)",
                 border: "0.5px solid #FDF6E9",
                 backdropFilter: "blur(10px)",
                 borderRadius: "23px",
                 padding: "7px 14px",
                 gap: "4px",
-                color: "#FFFFFF",
                 fontSize: "14px",
               }}
             >
@@ -156,7 +152,7 @@ export function Hero() {
                 alt="Arrow Right"
                 width={18}
                 height={18}
-                className="w-[18px] h-[18px]"
+                className="w-[18px] h-[18px] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform duration-200"
               />
             </Link>
           </div>

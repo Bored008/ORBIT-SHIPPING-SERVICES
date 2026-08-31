@@ -58,6 +58,7 @@ export function Services() {
         scrollTrigger: {
           trigger: headerRef.current,
           start: "top 80%",
+          toggleActions: "play none none reverse",
         },
         y: 40,
         opacity: 0,
@@ -71,6 +72,7 @@ export function Services() {
           scrollTrigger: {
             trigger: cardsRef.current,
             start: "top 75%",
+            toggleActions: "play none none reverse",
           },
           y: 60,
           opacity: 0,
@@ -180,15 +182,15 @@ export function Services() {
                     >
                       {service.text}
                     </p>
-                    <div className="flex flex-row justify-center items-center gap-[6px] mt-[24px]">
+                    <Link href={`/services/${service.title.toLowerCase().replace(/ & |\n| /g, "-")}`} className="flex flex-row justify-center items-center gap-[6px] mt-[24px] group">
                       <span 
-                        className="font-sans font-normal text-white"
+                        className="font-sans font-normal text-white group-hover:underline"
                         style={{ fontSize: "16px", lineHeight: "1.16em", letterSpacing: "-0.0469em" }}
                       >
                         Learn more
                       </span>
-                      <Image src="/images/arrow_top_right_white.svg" alt="Learn more" width={18} height={18} className="w-[18px] h-[18px]" />
-                    </div>
+                      <Image src="/images/arrow_top_right_white.svg" alt="Learn more" width={18} height={18} className="w-[18px] h-[18px] group-hover:-translate-y-[2px] group-hover:translate-x-[2px] transition-transform duration-200" />
+                    </Link>
                   </div>
                 </div>
               );
