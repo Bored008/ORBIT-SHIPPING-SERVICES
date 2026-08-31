@@ -37,10 +37,11 @@ export function Testimonials() {
             start: "top 75%",
             toggleActions: "play none none reverse",
           },
-          y: 60,
+          x: "100vw", // Slides in from the right corner
+          y: 0,
           opacity: 0,
-          duration: 0.8,
-          stagger: 0.15,
+          duration: 1.2,
+          stagger: 0.2,
           ease: "power3.out",
         });
       }
@@ -54,9 +55,9 @@ export function Testimonials() {
       <div className="w-full max-w-[1320px] flex flex-col gap-[64px] items-center">
         
         {/* Header Container */}
-        <div ref={headerRef} className="flex flex-col items-center gap-[24px]">
+        <div ref={headerRef} className="flex flex-col items-center gap-[8px]">
           <h2 
-            className="font-sans font-bold text-center"
+            className="font-sans font-extrabold text-center"
             style={{
               fontSize: "56px",
               lineHeight: "56px",
@@ -80,7 +81,7 @@ export function Testimonials() {
         </div>
 
         {/* Testimonial Grid */}
-        <div ref={cardsRef} className="relative w-full flex flex-row justify-center gap-[32px]">
+        <div ref={cardsRef} className="relative w-full flex flex-row justify-center items-center gap-[32px]">
           
           {/* Card 1: Kanan */}
           <div 
@@ -230,3 +231,4 @@ export function Testimonials() {
     </section>
   );
 }
+
