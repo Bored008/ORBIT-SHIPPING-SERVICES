@@ -5,21 +5,24 @@ import { Copyright, ArrowRight } from "lucide-react";
 export function Footer() {
   return (
     <footer className="relative w-full h-[1348px] bg-transparent overflow-hidden flex flex-col items-center justify-end">
-      {/* Background Image with Fade Mask */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          WebkitMaskImage: "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 2%, rgba(0,0,0,0) 4%, rgba(0,0,0,0.02) 5%, rgba(0,0,0,0.04) 7%, rgba(0,0,0,0.07) 9%, rgba(0,0,0,0.13) 10%, rgba(0,0,0,0.2) 12%, rgba(0,0,0,0.3) 14%, rgba(0,0,0,0.42) 16%, rgba(0,0,0,0.58) 17%, rgba(0,0,0,0.77) 19%, rgba(0,0,0,1) 21%, rgba(0,0,0,1) 100%)",
-          maskImage: "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 2%, rgba(0,0,0,0) 4%, rgba(0,0,0,0.02) 5%, rgba(0,0,0,0.04) 7%, rgba(0,0,0,0.07) 9%, rgba(0,0,0,0.13) 10%, rgba(0,0,0,0.2) 12%, rgba(0,0,0,0.3) 14%, rgba(0,0,0,0.42) 16%, rgba(0,0,0,0.58) 17%, rgba(0,0,0,0.77) 19%, rgba(0,0,0,1) 21%, rgba(0,0,0,1) 100%)"
-        }}
-      >
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
         <Image 
           src="/images/footer_bg-701a59.png" 
           alt="Delivery Truck" 
           fill 
           className="object-cover"
+          priority
         />
       </div>
+
+      {/* White Gradient Overlay to blend with the section above */}
+      <div 
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          background: "linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.98) 2%, rgba(255,255,255,0.96) 4%, rgba(255,255,255,0.93) 5%, rgba(255,255,255,0.87) 7%, rgba(255,255,255,0.8) 9%, rgba(255,255,255,0.7) 10%, rgba(255,255,255,0.58) 12%, rgba(255,255,255,0.42) 14%, rgba(255,255,255,0.23) 17%, rgba(255,255,255,0) 21%)"
+        }}
+      />
 
       {/* Main Footer Content */}
       <div className="relative z-10 w-full max-w-[1320px] flex flex-col gap-[64px] pb-[32px]">
