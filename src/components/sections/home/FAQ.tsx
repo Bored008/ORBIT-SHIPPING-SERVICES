@@ -37,12 +37,13 @@ export function FAQ() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    const container = containerRef.current;
+    if (!container) return;
 
     const ctx = gsap.context(() => {
-      gsap.from(containerRef.current.children, {
+      gsap.from(container.children, {
         scrollTrigger: {
-          trigger: containerRef.current,
+          trigger: container,
           start: "top 80%",
           toggleActions: "play none none reverse",
         },
@@ -151,3 +152,4 @@ export function FAQ() {
     </section>
   );
 }
+
