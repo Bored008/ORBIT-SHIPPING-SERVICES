@@ -58,7 +58,7 @@ export function Navbar() {
       <nav
         className="relative flex items-center"
         style={{
-          padding: "6px 24px",
+          padding: isActive("/") ? "6px 24px 6px 7px" : "6px 24px",
           gap: "8px",
           backgroundColor: "rgba(255, 255, 255, 0.1)",
           border: "0.3px solid #FFFFFF",

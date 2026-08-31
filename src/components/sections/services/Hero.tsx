@@ -51,7 +51,7 @@ export function Hero() {
           {/* Hero Text */}
           <div 
             ref={textRef}
-            className="flex flex-col items-center mt-[150px] w-full max-w-[1164px]"
+            className="flex flex-col items-center mt-[150px] mb-[-32px] w-full max-w-[1164px]"
           >
             <h1 
               className="w-full text-center font-sans font-bold text-white uppercase"
@@ -68,7 +68,7 @@ export function Hero() {
       </div>
 
       {/* Subtitle on White Background */}
-      <div className="relative z-10 w-full max-w-[1164px] flex flex-col items-center pt-[12px] pb-[60px]">
+      <div className="relative z-10 w-full max-w-[1164px] flex flex-col items-center pt-[44px] pb-[60px]">
         <p 
           className="w-full text-center font-sans font-medium"
           style={{
