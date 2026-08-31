@@ -26,52 +26,61 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full flex flex-col items-center bg-white pt-[32px] overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute top-0 left-0 right-0 h-[401px] z-0">
-        <Image 
-          src="/images/service_hero_bg-5bccd8.png" 
-          alt="Ocean Freight Background"
-          fill
-          priority
-          className="object-cover object-top"
-        />
+    <section className="w-full flex flex-col items-center bg-white overflow-hidden">
+      
+      {/* Image Container (Hugs Navbar and H1) */}
+      <div className="relative w-full flex flex-col items-center pt-[32px]">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image 
+            src="/images/service_hero_bg-5bccd8.png" 
+            alt="Ocean Freight Background"
+            fill
+            priority
+            className="object-cover object-top"
+          />
+        </div>
+
+        {/* Content over Image */}
+        <div className="relative z-10 w-full max-w-[1320px] flex flex-col items-center">
+          {/* Navbar Wrapper */}
+          <div className="w-full">
+            <Navbar />
+          </div>
+
+          {/* Hero Text */}
+          <div 
+            ref={textRef}
+            className="flex flex-col items-center mt-[150px] w-full max-w-[1164px]"
+          >
+            <h1 
+              className="w-full text-center font-sans font-bold text-white uppercase"
+              style={{
+                fontSize: "148px",
+                lineHeight: "1em",
+                letterSpacing: "-0.0135em",
+              }}
+            >
+              Ocean Freight
+            </h1>
+          </div>
+        </div>
       </div>
 
-      {/* Content Container */}
-      <div className="relative z-10 w-full max-w-[1320px] flex flex-col items-center gap-[195px]">
-        {/* Navbar Wrapper */}
-        <div className="w-full">
-          <Navbar />
-        </div>
-
-        {/* Hero Text */}
-        <div 
-          ref={textRef}
-          className="flex flex-col items-center gap-[12px] w-full max-w-[1164px] pb-[60px]"
+      {/* Subtitle on White Background */}
+      <div className="relative z-10 w-full max-w-[1164px] flex flex-col items-center pt-[12px] pb-[60px]">
+        <p 
+          className="w-full text-center font-sans font-medium"
+          style={{
+            fontSize: "16px",
+            lineHeight: "1.16em",
+            color: "rgba(0, 0, 0, 0.55)",
+          }}
         >
-          <h1 
-            className="w-full text-center font-sans font-bold text-white uppercase"
-            style={{
-              fontSize: "148px",
-              lineHeight: "1.16em",
-              letterSpacing: "-0.0135em",
-            }}
-          >
-            Ocean Freight
-          </h1>
-          <p 
-            className="w-full text-center font-sans font-medium"
-            style={{
-              fontSize: "16px",
-              lineHeight: "1.16em",
-              color: "rgba(0, 0, 0, 0.55)",
-            }}
-          >
-            Full container and part-load ocean freight, moving your cargo reliably across every major trade route.
-          </p>
-        </div>
+          Full container and part-load ocean freight, moving your cargo reliably across every major trade route.
+        </p>
       </div>
     </section>
   );
 }
+
