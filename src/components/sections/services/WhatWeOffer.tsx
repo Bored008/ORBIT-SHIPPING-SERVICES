@@ -54,7 +54,6 @@ const CARDS = [
 ];
 
 export function WhatWeOffer() {
-  const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
 
@@ -162,19 +161,17 @@ export function WhatWeOffer() {
         className="w-full grid grid-cols-3 gap-[20px]"
       >
         {CARDS.map((card, index) => {
-          const isActive = activeIndex === index;
           const bgGradient = card.gradient || "linear-gradient(180deg, rgba(255, 255, 255, 0.15) 1%, rgba(255, 255, 255, 0.15) 12%, rgba(180, 215, 240, 0.16) 36%, rgba(6, 122, 204, 0.17) 100%)";
           
           return (
             <div 
               key={index}
-              onClick={() => setActiveIndex(index)}
               className="relative overflow-hidden flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300 cursor-pointer group"
               style={{
                 width: "100%",
                 height: "309.5px",
                 borderRadius: "24px",
-                border: isActive ? "0.5px solid transparent" : "0.5px solid rgba(0, 0, 0, 0.23)",
+                border: "0.5px solid rgba(0, 0, 0, 0.23)",
               }}
             >
               {/* Inactive Gradient Background */}
@@ -183,9 +180,9 @@ export function WhatWeOffer() {
                 style={{ background: bgGradient }}
               />
 
-              {/* Active Blue Background */}
+              {/* Active Blue Background (Rises from bottom) */}
               <div 
-                className={`absolute inset-0 z-0 bg-[#067ACC] transition-opacity duration-500 ease-in-out ${isActive ? "opacity-100" : "opacity-0"}`}
+                className="absolute bottom-0 left-0 right-0 z-0 bg-[#067ACC] transition-all duration-500 ease-in-out h-0 group-hover:h-full"
               />
 
               {/* Content Wrapper */}
@@ -197,14 +194,14 @@ export function WhatWeOffer() {
                     alt={card.title}
                     width={63}
                     height={63}
-                    className={`w-[63px] h-[63px] transition-all duration-500 ${isActive ? "" : "brightness-0"}`}
+                    className="w-[63px] h-[63px] transition-all duration-500 brightness-0 group-hover:brightness-100"
                   />
                 </div>
 
                 {/* Text Content */}
                 <div className="flex flex-col gap-[13px]">
                   <h3 
-                    className={`font-sans font-medium transition-colors duration-500 ${isActive ? "text-white" : "text-[#000000]"}`}
+                    className="font-sans font-medium transition-colors duration-500 text-[#000000] group-hover:text-white"
                     style={{
                       fontSize: card.title.length > 28 ? "29px" : "32px",
                       lineHeight: "1.16em",
@@ -214,7 +211,7 @@ export function WhatWeOffer() {
                     {card.title}
                   </h3>
                   <p 
-                    className={`font-sans font-normal transition-colors duration-500 ${isActive ? "text-[rgba(255,255,255,0.75)]" : "text-[rgba(0,0,0,0.75)]"}`}
+                    className="font-sans font-normal transition-colors duration-500 text-[rgba(0,0,0,0.75)] group-hover:text-[rgba(255,255,255,0.75)]"
                     style={{
                       fontSize: "16px",
                       lineHeight: "1.16em",
