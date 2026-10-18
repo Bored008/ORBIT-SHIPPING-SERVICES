@@ -7,14 +7,21 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+import { usePathname } from "next/navigation";
+
 function LenisScrollTriggerSync() {
+  const pathname = usePathname();
+
   useLenis(() => {
     ScrollTrigger.update();
   });
 
   useEffect(() => {
-    ScrollTrigger.refresh();
-  }, []);
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [pathname]);
 
   return null;
 }

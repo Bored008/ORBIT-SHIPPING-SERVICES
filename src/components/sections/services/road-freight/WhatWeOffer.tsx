@@ -1,0 +1,191 @@
+"use client";
+
+import Image from "next/image";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const CARDS = [
+  {
+    title: "Full Truckload (FTL)",
+    desc: "A dedicated vehicle for larger loads, planned around your cargo, loading needs and delivery schedule.",
+    icon: "/images/icon_road.svg",
+  },
+  {
+    title: "Less Than Truckload (LTL)",
+    desc: "A shared-load option for smaller shipments and pallets that do not need a complete truck.",
+    icon: "/images/icon_boxes.svg",
+  },
+  {
+    title: "Cross-Border Trucking",
+    desc: "Route planning and documentation coordination for shipments that need to cross a border.",
+    icon: "/images/icon_route.svg",
+  },
+  {
+    title: "Temperature-Controlled Transport",
+    desc: "Discuss the required temperature range, product sensitivity and handling needs before booking.",
+    icon: "/images/icon_star.svg",
+  },
+  {
+    title: "Shipment Tracking",
+    desc: "Stay informed about shipment progress with tracking and update arrangements agreed for your route.",
+    icon: "/images/icon_radar.svg",
+  },
+  {
+    title: "Oversized & Project Cargo",
+    desc: "Special handling starts with accurate dimensions, weight, lifting points and route-access requirements.",
+    icon: "/images/icon_barrel.svg",
+  },
+];
+
+export function WhatWeOffer() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    const cardsEl = cardsRef.current;
+    if (!el || !cardsEl) return;
+
+    // Header animation
+    gsap.fromTo(
+      el.querySelector(".section-header"),
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    // Cards animation
+    gsap.fromTo(
+      cardsEl.children,
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: cardsEl,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  }, []);
+
+  return (
+    <section 
+      ref={containerRef}
+      className="w-full max-w-[82.5rem] mx-auto flex flex-col items-center gap-[2rem] md:gap-[2.5rem] px-4 sm:px-6 md:px-10 lg:px-[3.75rem]"
+    >
+      {/* Header Row */}
+      <div className="section-header w-full flex flex-col sm:flex-row sm:items-end justify-between gap-4 md:gap-6">
+        <div className="flex flex-col gap-[0.5rem] max-w-[42rem]">
+          <h2 
+            className="font-sans font-medium md:font-bold text-black text-[1.875rem] sm:text-[2.25rem] md:text-[2.625rem] lg:text-[3.5rem] tracking-[-0.75px] leading-tight md:leading-[3rem]"
+          >
+            What We <span className="text-cornflowerblue">Offer ?</span>
+          </h2>
+          <p 
+            className="font-sans font-normal text-dimgray text-[0.938rem] sm:text-[1rem] leading-[1.563rem]"
+          >
+            From single pallets to full truckloads, our road freight service is built to flex around how you ship — not the other way around.
+          </p>
+        </div>
+
+        {/* Book Now Button */}
+        <Link
+          href="#quote-section"
+          className="rounded-num-23 bg-cornflowerblue hover:bg-blue-600 hover:scale-105 active:scale-95 transition-all duration-200 text-white flex items-center justify-center py-[0.437rem] px-[0.875rem] gap-[0.25rem] text-[0.875rem] sm:text-[1rem] w-fit shrink-0 group self-start sm:self-auto"
+        >
+          <span>Book Now</span>
+          <Image 
+            src="/images/top_right_arrow.svg" 
+            alt="Book Now" 
+            width={17} 
+            height={17} 
+            className="w-[1.063rem] h-[1.063rem] brightness-0 invert group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform duration-200"
+          />
+        </Link>
+      </div>
+
+      {/* Bento Grid */}
+      <div 
+        ref={cardsRef}
+        className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 text-gray-100"
+      >
+        {CARDS.map((card, index) => {
+          const isFeatured = index === 0;
+
+          return (
+            <div 
+              key={index}
+              className={`group relative overflow-hidden rounded-[24px] border box-border flex flex-col justify-between p-[1.5rem] sm:p-[2rem] min-h-[14rem] sm:min-h-[16rem] md:min-h-[18rem] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl cursor-pointer ${
+                isFeatured
+                  ? "bg-cornflowerblue border-transparent text-white shadow-md"
+                  : "bg-white/80 border-gray-600/30 hover:border-transparent text-gray-100 hover:bg-cornflowerblue hover:text-white"
+              }`}
+            >
+              {/* Background gradient for unhovered standard cards */}
+              {!isFeatured && (
+                <div 
+                  className="absolute inset-0 pointer-events-none -z-10 opacity-80 group-hover:opacity-0 transition-opacity duration-300"
+                  style={{
+                    background: "linear-gradient(180deg, #ffffff 12%, #d3e7f4 100%)",
+                  }}
+                />
+              )}
+
+              {/* Icon Container */}
+              <div className="w-[3.5rem] h-[3.5rem] relative shrink-0">
+                <Image 
+                  src={card.icon}
+                  alt={card.title}
+                  width={63}
+                  height={63}
+                  className={`w-[3.5rem] h-[3.5rem] object-contain transition-all duration-300 ${
+                    isFeatured
+                      ? "brightness-0 invert"
+                      : "brightness-0 group-hover:brightness-0 group-hover:invert"
+                  }`}
+                />
+              </div>
+
+              {/* Text Information */}
+              <div className="flex flex-col gap-[0.75rem] pt-6">
+                <h3 
+                  className={`font-sans font-medium text-[1.25rem] sm:text-[1.5rem] leading-[1.1] transition-colors duration-300 ${
+                    isFeatured ? "text-white" : "text-gray-900 group-hover:text-white"
+                  }`}
+                >
+                  {card.title}
+                </h3>
+                <p 
+                  className={`font-sans text-[0.875rem] sm:text-[1rem] leading-[1.563rem] transition-colors duration-300 ${
+                    isFeatured ? "text-white/85" : "text-gray-600 group-hover:text-white/90"
+                  }`}
+                >
+                  {card.desc}
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+

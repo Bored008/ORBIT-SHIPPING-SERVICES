@@ -12,6 +12,7 @@ const servicesData = [
   {
     id: 0,
     title: "Ocean Freight",
+    href: "/services/ocean-freight",
     icon: "/images/icon_ocean.svg",
     iconWidth: 35,
     iconHeight: 38,
@@ -20,6 +21,7 @@ const servicesData = [
   {
     id: 1,
     title: "Air Freight",
+    href: "/services/air-freight",
     icon: "/images/icon_air.svg",
     iconWidth: 38,
     iconHeight: 38,
@@ -28,6 +30,7 @@ const servicesData = [
   {
     id: 2,
     title: "Road Freight &\nLogistics",
+    href: "/services/road-freight",
     icon: "/images/icon_road.svg",
     iconWidth: 43,
     iconHeight: 30,
@@ -36,6 +39,7 @@ const servicesData = [
   {
     id: 3,
     title: "Warehousing &\nCustoms Clearance",
+    href: "/services/warehousing",
     icon: "/images/icon_warehouse.svg",
     iconWidth: 38,
     iconHeight: 38,
@@ -196,9 +200,7 @@ export function Services() {
                       {service.text}
                     </p>
                     <Link
-                      href={`/services/${service.title
-                        .toLowerCase()
-                        .replace(/ & |\n| /g, "-")}`}
+                      href={service.href}
                       className="flex flex-row justify-center items-center gap-[0.375rem] mt-[0.75rem] lg:mt-[1.5rem] group"
                     >
                       <span className="font-sans font-normal text-white group-hover:underline text-[0.875rem] lg:text-[1rem] tracking-[-0.03em]">

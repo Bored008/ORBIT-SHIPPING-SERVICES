@@ -24,13 +24,15 @@
 
   --color-cornflowerblue: #067acc;
   --color-cornflowerblue-100: #067acc;
-  --color-cornflowerblue-200: rgba(6, 122, 204, 0.05);
+  --color-cornflowerblue-200: rgba(6, 122, 204, 0.15);
 
   --color-darkslategray: #374151;
   --color-gainsboro: #e5e7eb;
   --color-gainsboro-100: #e5e7eb;
   --color-gainsboro-200: rgba(229, 231, 235, 0.25);
   --color-whitesmoke: #f4f4f5;
+  --color-whitesmoke-100: #f4f4f5;
+  --color-whitesmoke-200: #f3f4f6;
   --color-dimgray: #4b5563;
   --color-darkgray: #9ca3af;
 
@@ -38,6 +40,7 @@
   --radius-num-16: 16px;
   --radius-num-20: 20px;
   --radius-num-23: 23px;
+  --radius-num-24: 24px;
 }
 
 @media (prefers-color-scheme: dark) {
