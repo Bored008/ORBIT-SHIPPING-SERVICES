@@ -53,6 +53,8 @@ export function Hero() {
           muted
           loop
           playsInline
+          preload="auto"
+          poster="/heroSection/poster.webp"
           className="object-cover w-full h-full"
         />
         {/* Gradient Mask */}
