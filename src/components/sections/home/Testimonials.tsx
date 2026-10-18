@@ -15,223 +15,266 @@ export function Testimonials() {
   useEffect(() => {
     if (!sectionRef.current) return;
 
-    const ctx = gsap.context(() => {
-      // Header Animation
-      gsap.from(headerRef.current, {
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
-      });
+    const mm = gsap.matchMedia();
 
-      // Cards Stagger Animation
-      if (cardsRef.current) {
-        gsap.from(cardsRef.current.children, {
-          scrollTrigger: {
-            trigger: cardsRef.current,
-            start: "top 75%",
-            toggleActions: "play none none reverse",
-          },
-          x: 400, // Slide in from right (like a train arriving)
-          opacity: 0,
-          duration: 1.2,
-          stagger: 0.15,
-          ease: "power3.out",
-        });
+    mm.add(
+      {
+        isDesktop: "(min-width: 1025px)",
+        isTablet: "(min-width: 768px) and (max-width: 1024px)",
+        isMobile: "(max-width: 767px)",
+      },
+      (context) => {
+        const { isTablet, isMobile } = context.conditions as {
+          isDesktop: boolean;
+          isTablet: boolean;
+          isMobile: boolean;
+        };
+
+        const headerStart = isTablet ? "top 85%" : isMobile ? "top 90%" : "top 80%";
+        const cardsStart = isTablet ? "top 85%" : isMobile ? "top 90%" : "top 75%";
+
+        // Header Animation
+        if (headerRef.current) {
+          gsap.from(headerRef.current, {
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: headerStart,
+              toggleActions: "play none none none",
+              once: true,
+            },
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            clearProps: "all",
+          });
+        }
+
+        // Cards Stagger Animation
+        if (cardsRef.current) {
+          gsap.from(cardsRef.current.children, {
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: cardsStart,
+              toggleActions: "play none none none",
+              once: true,
+            },
+            y: isMobile ? 30 : 40,
+            x: isTablet ? 0 : 40,
+            opacity: 0,
+            duration: 0.9,
+            stagger: 0.15,
+            ease: "power3.out",
+            clearProps: "all",
+          });
+        }
       }
-    }, sectionRef);
+    );
 
-    return () => ctx.revert();
+    return () => mm.revert();
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full flex justify-center bg-white overflow-hidden">
-      <div className="w-full max-w-[1320px] flex flex-col gap-[64px] items-center">
-        
+    <section
+      ref={sectionRef}
+      className="w-full flex justify-center bg-white overflow-hidden py-[3rem] md:py-[4rem] lg:py-[5rem] px-[1.25rem] md:px-[2.5rem] lg:px-[4rem]"
+    >
+      <div className="w-full max-w-[82.5rem] flex flex-col gap-[2rem] md:gap-[2.5rem] items-center">
         {/* Header Container */}
-        <div ref={headerRef} className="flex flex-col items-center gap-[8px]">
-          <h2 
-            className="font-sans font-extrabold text-center"
-            style={{
-              fontSize: "56px",
-              lineHeight: "56px",
-              letterSpacing: "-0.0321em",
-              color: "#111827"
-            }}
-          >
-            Trusted by Businesses <span style={{ color: "#067ACC", fontWeight: 500 }}>worldwide!</span>
+        <div
+          ref={headerRef}
+          className="flex flex-col items-center text-center gap-[0.5rem]"
+        >
+          <h2 className="font-sans font-semibold text-[2rem] sm:text-[2.25rem] md:text-[2.625rem] lg:text-[3.5rem] leading-[1.15] text-gray-100">
+            <span>Trusted by Businesses </span>
+            <span className="text-cornflowerblue-100">worldwide!</span>
           </h2>
-          <p 
-            className="font-sans font-normal text-center"
-            style={{
-              fontSize: "16px",
-              lineHeight: "1.16em",
-              color: "rgba(0, 0, 0, 0.55)",
-              maxWidth: "600px"
-            }}
-          >
-            “See why 30,000+ businesses rely on Orbit Shipping Services to move their cargo — on time, every time.”
+          <p className="font-sans text-[0.938rem] md:text-[1rem] text-dimgray max-w-[37.5rem]">
+            “See why 30,000+ businesses rely on Orbit Shipping Services to move
+            their cargo — on time, every time.”
           </p>
         </div>
 
-        {/* Testimonial Grid */}
-        <div ref={cardsRef} className="relative w-full flex flex-row justify-center items-center gap-[32px]">
-          
+        {/* Testimonial Cards */}
+        <div
+          ref={cardsRef}
+          className="w-full flex flex-col md:flex-row items-stretch gap-[1.5rem] text-[0.875rem]"
+        >
           {/* Card 1: Kanan */}
-          <div className="relative w-[418px] h-[500px]">
-            <div 
-              className="flex flex-col justify-between p-[48px_32px] w-full h-full bg-[#FFFFFF] rounded-[24px] group hover:scale-[1.02] transition-transform duration-300"
-              style={{
-                border: "0.8px solid #067ACC",
-                boxShadow: "0px 1px 2px 0px rgba(0, 0, 0, 0.05)"
-              }}
-            >
-              <div className="flex flex-col gap-[32px]">
-                {/* Profile Header */}
-                <div className="flex flex-row justify-between items-center">
-                  <div className="flex flex-row items-center gap-[12px]">
-                    <Image src="/images/kanan-4a0be7.png" alt="Kanan" width={48} height={48} className="rounded-full object-cover w-[48px] h-[48px]" />
-                    <div className="flex flex-col">
-                      <span className="font-sans font-semibold text-[16px] leading-[24px] text-[#111827]">Kanan</span>
-                      <span className="font-sans font-normal text-[14px] leading-[20px] text-[rgba(0,0,0,0.75)]">Supply Chain Manager</span>
+          <div className="flex-1 rounded-num-20 bg-white border border-cornflowerblue-100 flex flex-col justify-between p-[1.5rem] gap-[1.25rem] shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex flex-col gap-[1rem]">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-[0.75rem]">
+                  <Image
+                    src="/images/kanan-4a0be7.png"
+                    alt="Kanan"
+                    width={40}
+                    height={40}
+                    className="h-[2.5rem] w-[2.5rem] rounded-num-20 object-cover"
+                  />
+                  <div className="flex flex-col items-start">
+                    <div className="font-semibold text-gray-100 text-[1rem]">
+                      Kanan
+                    </div>
+                    <div className="text-[0.75rem] text-dimgray">
+                      Supply Chain Manager
                     </div>
                   </div>
-                  <div className="flex justify-center items-center w-[32px] h-[32px] bg-[#F9FAFB] rounded-full">
-                    <Image src="/images/twitter_blue.svg" alt="Twitter" width={16} height={16} />
-                  </div>
                 </div>
-                
-                {/* Text */}
-                <p className="font-sans font-normal text-[14px] leading-[22.75px] text-[#4B5563] pr-[16px]">
-                  Orbit Shipping Services made our international logistics a breeze! Their team handled everything seamlessly, ensuring our shipments arrived on time every time. Highly recommended!.
-                </p>
+                <div className="flex justify-center items-center w-[2rem] h-[2rem] bg-gray-50 rounded-full">
+                  <Image
+                    src="/images/twitter_blue.svg"
+                    alt="Twitter"
+                    width={16}
+                    height={16}
+                    className="w-[1rem] h-[1rem]"
+                  />
+                </div>
               </div>
 
-              {/* Footer */}
-              <div className="flex flex-row justify-between items-center border-t border-gray-100 pt-[16px]">
-                <div className="flex flex-row gap-[4px]">
-                  {[...Array(5)].map((_, i) => (
-                    <Image key={i} src="/images/star.svg" alt="Star" width={20} height={20} />
-                  ))}
-                </div>
-                <span className="font-sans font-medium text-[14px] leading-[20px] text-[#6B7280]">
-                  03/15/2025
-                </span>
+              <p className="text-[0.875rem] leading-[1.375rem] text-dimgray">
+                &ldquo;Orbit Shipping Services made our international logistics a
+                breeze! Their team handled everything seamlessly, ensuring our
+                shipments arrived on time every time.&rdquo;
+              </p>
+            </div>
+
+            {/* Rating Stars & Date */}
+            <div className="flex items-center justify-between pt-[0.75rem] border-t border-gainsboro-100/60">
+              <div className="flex gap-[0.25rem]">
+                {[...Array(5)].map((_, i) => (
+                  <Image
+                    key={i}
+                    src="/images/star.svg"
+                    alt="Star"
+                    width={16}
+                    height={16}
+                    className="w-[1rem] h-[1rem]"
+                  />
+                ))}
               </div>
+              <span className="text-[0.75rem] text-dimgray">03/15/2025</span>
             </div>
           </div>
 
           {/* Card 2: Amar (Video Background) */}
-          <div className="relative w-[418px] h-[500px]">
-            <div 
-              className="relative flex flex-col justify-between p-[32px] w-full h-full rounded-[24px] overflow-hidden group hover:scale-[1.02] transition-transform duration-300"
-              style={{
-                border: "0.8px solid #067ACC"
-              }}
-            >
-              {/* Background Image */}
-              <div className="absolute inset-0 z-0">
-                <Image src="/images/amar_bg.png" alt="Amar Video Background" fill className="object-cover" />
-              </div>
+          <div className="flex-1 rounded-num-20 flex flex-col justify-between p-[1.5rem] min-h-[14rem] md:min-h-[16rem] lg:min-h-[20rem] relative overflow-hidden bg-cover bg-no-repeat bg-top text-white group shadow-sm hover:shadow-md transition-shadow">
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+              <Image
+                src="/images/amar_bg.png"
+                alt="Amar Video Background"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-black/20" />
+            </div>
 
-              {/* Header */}
-              <div className="relative z-10 flex flex-row justify-between items-start">
-                <div className="flex flex-col">
-                  <span className="font-sans font-semibold text-[18px] leading-[28px] text-[#000000]">Amar</span>
-                  <span className="font-sans font-normal text-[14px] leading-[20px] text-[rgba(0,0,0,0.75)]">Logistics Director</span>
-                </div>
-                <div className="flex justify-center items-center w-[32px] h-[32px] bg-[rgba(255,255,255,0.2)] backdrop-blur-[2px] rounded-full">
-                  <Image src="/images/twitter_white.svg" alt="Twitter" width={16} height={16} />
-                </div>
+            {/* Header */}
+            <div className="relative z-10 flex items-center justify-between gap-[1.25rem]">
+              <div className="flex flex-col items-start">
+                <div className="font-semibold text-[1rem] text-white">Amar</div>
+                <div className="text-[0.75rem] text-white/80">Logistics Director</div>
               </div>
+              <div className="h-[2rem] w-[2rem] rounded-num-16 bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                <Image
+                  src="/images/twitter_white.svg"
+                  alt="Twitter"
+                  width={16}
+                  height={16}
+                  className="w-[1rem] h-[1rem]"
+                />
+              </div>
+            </div>
 
-              {/* Play Button */}
-              <div className="absolute inset-0 flex justify-center items-center z-10 pointer-events-none">
-                <div className="flex justify-center items-center w-[64px] h-[64px] bg-[#FFFFFF] rounded-full shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] pointer-events-auto cursor-pointer hover:scale-110 active:scale-95 transition-transform duration-200">
-                  <Image src="/images/play_icon.svg" alt="Play" width={18} height={24} className="ml-[4px]" />
-                </div>
+            {/* Play Button */}
+            <div className="absolute inset-0 flex justify-center items-center z-10 pointer-events-none">
+              <div className="w-[3.5rem] h-[3.5rem] rounded-full bg-white flex items-center justify-center shadow-lg pointer-events-auto cursor-pointer group-hover:scale-110 active:scale-95 transition-transform">
+                <Image
+                  src="/images/play_icon.svg"
+                  alt="Play"
+                  width={16}
+                  height={20}
+                  className="w-[1rem] h-[1.25rem] ml-[0.2rem]"
+                />
               </div>
+            </div>
 
-              {/* Footer */}
-              <div className="relative z-10 flex flex-row justify-between items-end mt-auto">
-                <div className="flex flex-row gap-[4px] drop-shadow-[0_4px_3px_rgba(0,0,0,0.07)]">
-                  {[...Array(5)].map((_, i) => (
-                    <Image key={i} src="/images/star.svg" alt="Star" width={20} height={20} />
-                  ))}
-                </div>
-                <span className="font-sans font-medium text-[14px] leading-[20px] text-[#E5E7EB] drop-shadow-md">
-                  09/30/2024
-                </span>
+            {/* Footer */}
+            <div className="relative z-10 flex items-center justify-between pt-[0.75rem]">
+              <div className="flex gap-[0.25rem]">
+                {[...Array(5)].map((_, i) => (
+                  <Image
+                    key={i}
+                    src="/images/star.svg"
+                    alt="Star"
+                    width={16}
+                    height={16}
+                    className="w-[1rem] h-[1rem]"
+                  />
+                ))}
               </div>
+              <span className="text-[0.75rem] text-white/90">09/30/2024</span>
             </div>
           </div>
 
-          {/* Card 3: Ishaan (Faded) */}
-          <div className="relative w-[418px] h-[500px]">
-            {/* The Card */}
-            <div 
-              className="flex flex-col justify-between p-[48px_32px] w-full h-full bg-[#FFFFFF] rounded-[24px] group hover:scale-[1.02] transition-transform duration-300"
-              style={{
-                border: "0.8px solid #067ACC",
-                boxShadow: "0px 1px 2px 0px rgba(0, 0, 0, 0.05)"
-              }}
-            >
-              <div className="flex flex-col gap-[32px]">
-                {/* Profile Header */}
-                <div className="flex flex-row justify-between items-center">
-                  <div className="flex flex-row items-center gap-[12px]">
-                    <Image src="/images/ishaan-4a0be7.png" alt="Ishaan" width={48} height={48} className="rounded-full object-cover w-[48px] h-[48px]" />
-                    <div className="flex flex-col">
-                      <span className="font-sans font-semibold text-[16px] leading-[24px] text-[#111827]">Ishaan</span>
-                      <span className="font-sans font-normal text-[14px] leading-[20px] text-[rgba(0,0,0,0.75)]">Operations Head</span>
+          {/* Card 3: Ishaan */}
+          <div className="flex-1 rounded-num-20 bg-white border border-gainsboro-100 flex flex-col justify-between p-[1.5rem] gap-[1.25rem] shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex flex-col gap-[1rem]">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-[0.75rem]">
+                  <Image
+                    src="/images/ishaan-4a0be7.png"
+                    alt="Ishaan"
+                    width={40}
+                    height={40}
+                    className="h-[2.5rem] w-[2.5rem] rounded-num-20 object-cover"
+                  />
+                  <div className="flex flex-col items-start">
+                    <div className="font-semibold text-gray-100 text-[1rem]">
+                      Ishaan
+                    </div>
+                    <div className="text-[0.75rem] text-dimgray">
+                      Operations Head
                     </div>
                   </div>
-                  <div className="flex justify-center items-center w-[32px] h-[32px] bg-[#F9FAFB] rounded-full opacity-40">
-                    <Image src="/images/twitter_faded.svg" alt="Twitter" width={16} height={16} />
-                  </div>
                 </div>
-                
-                {/* Text */}
-                <p className="font-sans font-normal text-[14px] leading-[22.75px] text-[#4B5563] pr-[48px]">
-                  “We’ve been working with Orbit Shipping Services for years now, and they’ve consistently exceeded our expectations. Their attention to detail and dedication to customer satisfaction truly set them apart. A reliable partner for all our shipping needs.”
-                </p>
+                <div className="flex justify-center items-center w-[2rem] h-[2rem] bg-gray-50 rounded-full opacity-60">
+                  <Image
+                    src="/images/twitter_faded.svg"
+                    alt="Twitter"
+                    width={16}
+                    height={16}
+                    className="w-[1rem] h-[1rem]"
+                  />
+                </div>
               </div>
 
-              {/* Footer */}
-              <div className="flex flex-row justify-between items-center border-t border-gray-100 pt-[16px]">
-                <div className="flex flex-row gap-[4px]">
-                  {[...Array(5)].map((_, i) => (
-                    <Image key={i} src="/images/star.svg" alt="Star" width={20} height={20} />
-                  ))}
-                </div>
-                <span className="font-sans font-medium text-[14px] leading-[20px] text-[#9CA3AF] pr-[24px]">
-                  01/22/2025
-                </span>
-              </div>
+              <p className="text-[0.875rem] leading-[1.375rem] text-dimgray">
+                &ldquo;We&rsquo;ve been working with Orbit Shipping Services for years
+                now, and they&rsquo;ve consistently exceeded our expectations.&rdquo;
+              </p>
             </div>
 
-            {/* Gradient Mask for fading out right side */}
-            <div 
-              className="absolute inset-0 pointer-events-none rounded-[24px]"
-              style={{
-                background: "linear-gradient(90deg, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 100%)"
-              }}
-            />
-
-            {/* Navigation Arrow */}
-            <div className="absolute right-[-20px] top-1/2 -translate-y-1/2 flex justify-center items-center w-[40px] h-[40px] rounded-full bg-[rgba(229,231,235,0.8)] cursor-pointer hover:bg-gray-300 hover:scale-110 active:scale-95 transition-all duration-200 z-20">
-              <Image src="/images/nav_arrow_right.svg" alt="Next" width={20} height={20} />
+            {/* Rating Stars & Date */}
+            <div className="flex items-center justify-between pt-[0.75rem] border-t border-gainsboro-100/60">
+              <div className="flex gap-[0.25rem]">
+                {[...Array(5)].map((_, i) => (
+                  <Image
+                    key={i}
+                    src="/images/star.svg"
+                    alt="Star"
+                    width={16}
+                    height={16}
+                    className="w-[1rem] h-[1rem]"
+                  />
+                ))}
+              </div>
+              <span className="text-[0.75rem] text-dimgray">01/22/2025</span>
             </div>
           </div>
-
         </div>
       </div>
     </section>
   );
 }
-

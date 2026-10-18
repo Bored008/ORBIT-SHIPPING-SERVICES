@@ -37,175 +37,170 @@ export function QuoteForm() {
   return (
     <section 
       ref={containerRef}
-      className="w-full max-w-[1440px] mx-auto flex flex-row items-stretch justify-between"
-      style={{
-        padding: "0px 60px",
-        gap: "81px",
-      }}
+      className="w-full max-w-[82.5rem] mx-auto flex flex-col lg:flex-row items-stretch lg:items-start justify-between gap-[2.5rem] lg:gap-[4rem] xl:gap-[5rem] px-4 sm:px-6 md:px-10 lg:px-[3.75rem] py-6 sm:py-8 md:py-12"
     >
       {/* Left Column - Contact Info */}
-      <div 
-        className="flex flex-col justify-center"
-        style={{ width: "589px", gap: "44px" }}
-      >
+      <div className="flex-1 lg:flex-[1.15] flex flex-col justify-between gap-[2rem] md:gap-[2.5rem]">
         {/* Header Content */}
-        <div className="flex flex-col gap-[16px]">
-          <h2 
-            className="font-sans font-bold text-[#000000]"
-            style={{
-              fontSize: "56px",
-              lineHeight: "56px",
-              letterSpacing: "-0.0134em",
-            }}
-          >
-            Get a Quote for Your <span className="text-[#067ACC]">Shipment</span>
+        <div className="flex flex-col gap-[1rem]">
+          <h2 className="font-sans font-medium md:font-bold text-gray-100 text-[1.875rem] sm:text-[2.25rem] md:text-[2.625rem] lg:text-[3.5rem] tracking-[-0.75px] leading-tight md:leading-[3rem]">
+            Get a Quote for Your <span className="text-cornflowerblue">Shipment</span>
           </h2>
-          <p 
-            className="font-sans font-normal text-[#6B7280]"
-            style={{
-              fontSize: "18px",
-              lineHeight: "1.16em",
-            }}
-          >
+          <p className="font-sans font-normal text-dimgray text-[0.938rem] sm:text-[1rem] leading-[1.375rem] max-w-[36rem]">
             Tell us what you&apos;re shipping and where it&apos;s going — our team will get back to you with a tailored freight quote within 24 hours.
           </p>
         </div>
 
         {/* Contact Details */}
-        <div className="flex flex-col gap-[24px]">
+        <div className="flex flex-col gap-[1rem] sm:gap-[1.25rem] text-[0.938rem] sm:text-[1rem]">
           {/* Email */}
-          <div className="flex flex-row items-center w-full">
-            <div className="flex justify-center items-center bg-[#F3F4F6] rounded-[8px] w-[40px] h-[40px]">
-              <Image src="/images/icon_email_contact.svg" alt="Email" width={20} height={20} />
+          <div className="flex items-center gap-[0.75rem]">
+            <div className="w-[2.5rem] h-[2.5rem] rounded-lg bg-whitesmoke flex items-center justify-center shrink-0">
+              <Image 
+                src="/images/icon_email_contact.svg" 
+                alt="Email" 
+                width={20} 
+                height={20} 
+                className="w-[1.25rem] h-[1.25rem]"
+              />
             </div>
-            <div className="pl-[16px]">
-              <span className="font-sans font-medium text-[#111827] text-[16px] leading-[24px]">
-                quotes@orbit-shipping.com
-              </span>
-            </div>
+            <a 
+              href="mailto:quotes@orbit-shipping.com"
+              className="font-medium text-gray-100 hover:text-cornflowerblue transition-colors"
+            >
+              quotes@orbit-shipping.com
+            </a>
           </div>
 
           {/* Address */}
-          <div className="flex flex-row items-center w-full">
-            <div className="flex justify-center items-center bg-[#F3F4F6] rounded-[8px] w-[40px] h-[40px]">
-              <Image src="/images/icon_address_contact.svg" alt="Address" width={20} height={20} />
+          <div className="flex items-center gap-[0.75rem]">
+            <div className="w-[2.5rem] h-[2.5rem] rounded-lg bg-whitesmoke flex items-center justify-center shrink-0">
+              <Image 
+                src="/images/icon_address_contact.svg" 
+                alt="Address" 
+                width={20} 
+                height={20} 
+                className="w-[1.25rem] h-[1.25rem]"
+              />
             </div>
-            <div className="pl-[16px]">
-              <span className="font-sans font-medium text-[#111827] text-[16px] leading-[24px]">
-                Orbit&apos;s actual office address, Dubai, UAE
-              </span>
-            </div>
+            <span className="font-medium text-gray-100">
+              Orbit&apos;s actual office address, Dubai, UAE
+            </span>
           </div>
 
           {/* Phone */}
-          <div className="flex flex-row items-center w-full">
-            <div className="flex justify-center items-center bg-[#F3F4F6] rounded-[8px] w-[40px] h-[40px]">
-              <Image src="/images/icon_phone_contact.svg" alt="Phone" width={20} height={20} />
+          <div className="flex items-center gap-[0.75rem]">
+            <div className="w-[2.5rem] h-[2.5rem] rounded-lg bg-whitesmoke flex items-center justify-center shrink-0">
+              <Image 
+                src="/images/icon_phone_contact.svg" 
+                alt="Phone" 
+                width={18} 
+                height={18} 
+                className="w-[1.125rem] h-[1.125rem]"
+              />
             </div>
-            <div className="pl-[16px]">
-              <span className="font-sans font-medium text-[#111827] text-[16px] leading-[24px]">
-                +971 XX XXX XXXX
-              </span>
-            </div>
+            <a 
+              href="tel:+971XXXXXXXX"
+              className="font-medium text-gray-100 hover:text-cornflowerblue transition-colors"
+            >
+              +971 XX XXX XXXX
+            </a>
           </div>
         </div>
 
         {/* Social Icons */}
-        <div className="flex flex-row items-center gap-[24px]">
-          <Link href="#" className="hover:opacity-70 transition-opacity">
-            <Image src="/images/icon_linkedin_blue.svg" alt="LinkedIn" width={25} height={25} />
+        <div className="flex items-center gap-[1rem]">
+          <Link href="#" className="hover:opacity-75 hover:scale-110 transition-all">
+            <Image src="/images/icon_linkedin_blue.svg" alt="LinkedIn" width={22} height={22} className="w-[1.375rem] h-[1.375rem]" />
           </Link>
-          <Link href="#" className="hover:opacity-70 transition-opacity">
-            <Image src="/images/icon_twitter_blue.svg" alt="Twitter" width={25} height={25} />
+          <Link href="#" className="hover:opacity-75 hover:scale-110 transition-all">
+            <Image src="/images/icon_twitter_blue.svg" alt="Twitter" width={22} height={22} className="w-[1.375rem] h-[1.375rem]" />
           </Link>
-          <Link href="#" className="hover:opacity-70 transition-opacity">
-            <Image src="/images/icon_instagram_blue.svg" alt="Instagram" width={25} height={25} />
+          <Link href="#" className="hover:opacity-75 hover:scale-110 transition-all">
+            <Image src="/images/icon_instagram_blue.svg" alt="Instagram" width={22} height={22} className="w-[1.375rem] h-[1.375rem]" />
           </Link>
-          <Link href="#" className="hover:opacity-70 transition-opacity">
-            <Image src="/images/icon_facebook_blue.svg" alt="Facebook" width={25} height={25} />
+          <Link href="#" className="hover:opacity-75 hover:scale-110 transition-all">
+            <Image src="/images/icon_facebook_blue.svg" alt="Facebook" width={22} height={22} className="w-[1.375rem] h-[1.375rem]" />
           </Link>
         </div>
       </div>
 
       {/* Right Column - Contact Form */}
-      <div 
-        className="flex-1 flex flex-col bg-[#F4F4F5] rounded-[24px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]"
-        style={{
-          padding: "40px",
-          border: "1px solid #F3F4F6"
-        }}
-      >
-        <form className="flex flex-col gap-[24px] w-full" onSubmit={(e) => e.preventDefault()}>
+      <div className="flex-1 w-full rounded-3xl bg-whitesmoke border border-gainsboro p-[1.5rem] sm:p-[2rem] flex flex-col gap-[1.25rem] text-[0.875rem] shadow-sm">
+        <form className="flex flex-col gap-[1.25rem] w-full" onSubmit={(e) => e.preventDefault()}>
           {/* Full Name */}
-          <div className="flex flex-col gap-[8px]">
-            <label className="font-sans font-medium text-[#374151] text-[14px] leading-[20px]">
+          <div className="flex flex-col gap-[0.375rem]">
+            <label className="font-medium text-gray-900">
               Full Name
             </label>
             <input 
               type="text" 
               placeholder="Enter Your Name" 
-              className="w-full bg-[#FFFFFF] border-[1px] border-transparent rounded-[12px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] outline-none font-sans font-normal text-[16px] text-[#9CA3AF] placeholder:text-[#9CA3AF] px-[16px] py-[14px] focus:border-[#067ACC] focus:ring-2 focus:ring-blue-200 transition-all"
+              className="w-full rounded-num-12 bg-white border border-gainsboro p-[0.875rem] text-gray-900 placeholder:text-darkgray outline-none focus:border-cornflowerblue focus:ring-1 focus:ring-cornflowerblue transition-all"
             />
           </div>
 
           {/* Email Address */}
-          <div className="flex flex-col gap-[8px]">
-            <label className="font-sans font-medium text-[#374151] text-[14px] leading-[20px]">
+          <div className="flex flex-col gap-[0.375rem]">
+            <label className="font-medium text-gray-900">
               Email Address
             </label>
             <input 
               type="email" 
               placeholder="Enter Your Email Address" 
-              className="w-full bg-[#FFFFFF] border-[1px] border-transparent rounded-[12px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] outline-none font-sans font-normal text-[16px] text-[#9CA3AF] placeholder:text-[#9CA3AF] px-[16px] py-[14px] focus:border-[#067ACC] focus:ring-2 focus:ring-blue-200 transition-all"
+              className="w-full rounded-num-12 bg-white border border-gainsboro p-[0.875rem] text-gray-900 placeholder:text-darkgray outline-none focus:border-cornflowerblue focus:ring-1 focus:ring-cornflowerblue transition-all"
             />
           </div>
 
           {/* Phone Number */}
-          <div className="flex flex-col gap-[8px]">
-            <label className="font-sans font-medium text-[#374151] text-[14px] leading-[20px]">
+          <div className="flex flex-col gap-[0.375rem]">
+            <label className="font-medium text-gray-900">
               Phone Number
             </label>
             <input 
               type="tel" 
               placeholder="Enter Your Phone Number" 
-              className="w-full bg-[#FFFFFF] border-[1px] border-transparent rounded-[12px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] outline-none font-sans font-normal text-[16px] text-[#9CA3AF] placeholder:text-[#9CA3AF] px-[16px] py-[14px] focus:border-[#067ACC] focus:ring-2 focus:ring-blue-200 transition-all"
+              className="w-full rounded-num-12 bg-white border border-gainsboro p-[0.875rem] text-gray-900 placeholder:text-darkgray outline-none focus:border-cornflowerblue focus:ring-1 focus:ring-cornflowerblue transition-all"
             />
           </div>
 
           {/* Subject */}
-          <div className="flex flex-col gap-[8px]">
-            <label className="font-sans font-medium text-[#374151] text-[14px] leading-[20px]">
+          <div className="flex flex-col gap-[0.375rem]">
+            <label className="font-medium text-gray-900">
               Subject
             </label>
             <input 
               type="text" 
-              placeholder="Enter Your Purpose of Your Contact" 
-              className="w-full bg-[#FFFFFF] border-[1px] border-transparent rounded-[12px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] outline-none font-sans font-normal text-[16px] text-[#9CA3AF] placeholder:text-[#9CA3AF] px-[16px] py-[14px] focus:border-[#067ACC] focus:ring-2 focus:ring-blue-200 transition-all"
+              placeholder="Enter Purpose of Your Contact" 
+              className="w-full rounded-num-12 bg-white border border-gainsboro p-[0.875rem] text-gray-900 placeholder:text-darkgray outline-none focus:border-cornflowerblue focus:ring-1 focus:ring-cornflowerblue transition-all"
             />
           </div>
 
           {/* Message */}
-          <div className="flex flex-col gap-[8px]">
-            <label className="font-sans font-medium text-[#374151] text-[14px] leading-[20px]">
+          <div className="flex flex-col gap-[0.375rem]">
+            <label className="font-medium text-gray-900">
               Message
             </label>
             <textarea 
+              rows={4}
               placeholder="Write Your Message Here" 
-              className="w-full bg-[#FFFFFF] border-[1px] border-transparent rounded-[12px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] outline-none font-sans font-normal text-[16px] leading-[24px] text-[#9CA3AF] placeholder:text-[#9CA3AF] px-[16px] pt-[12px] pb-[84px] resize-none focus:border-[#067ACC] focus:ring-2 focus:ring-blue-200 transition-all"
+              className="w-full rounded-num-12 bg-white border border-gainsboro p-[0.875rem] text-gray-900 placeholder:text-darkgray outline-none resize-none focus:border-cornflowerblue focus:ring-1 focus:ring-cornflowerblue transition-all"
             />
           </div>
 
           {/* Submit Button */}
           <button 
             type="submit"
-            className="flex self-start justify-center items-center bg-[#067ACC] hover:bg-blue-600 active:scale-95 transition-all duration-200 text-white rounded-[23px] group"
-            style={{
-              padding: "7px 14px",
-              gap: "4px",
-            }}
+            className="w-full rounded-num-23 bg-cornflowerblue hover:bg-blue-600 active:scale-95 transition-all duration-200 text-white flex items-center justify-center p-[0.75rem] gap-[0.375rem] font-medium text-[0.875rem] group cursor-pointer"
           >
-            <span className="font-sans font-normal text-[14px]">Request Call</span>
-            <ArrowRight className="w-[17px] h-[17px] text-white group-hover:translate-x-0.5 transition-transform duration-200" />
+            <span>Request Call</span>
+            <Image 
+              src="/images/top_right_arrow.svg" 
+              alt="Submit" 
+              width={17} 
+              height={17} 
+              className="w-[1.063rem] h-[1.063rem] brightness-0 invert group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200"
+            />
           </button>
         </form>
       </div>

@@ -34,33 +34,18 @@ export function Intro() {
   return (
     <section 
       ref={containerRef}
-      className="w-full max-w-[1440px] mx-auto flex flex-row justify-between items-start"
-      style={{
-        padding: "0px 60px",
-      }}
+      className="w-full max-w-[82.5rem] mx-auto flex flex-col lg:flex-row lg:justify-between items-start gap-[1.5rem] lg:gap-[4rem] px-4 sm:px-6 md:px-10 lg:px-[3.75rem] py-6 sm:py-8 md:py-12 lg:py-16"
     >
-      {/* Left Column: Heading */}
+      {/* Left Column / Heading */}
       <h2 
-        className="font-sans font-medium text-[#000000]"
-        style={{
-          width: "537px",
-          fontSize: "56px",
-          lineHeight: "56px",
-          letterSpacing: "-0.025em",
-        }}
+        className="font-sans font-medium text-gray-100 tracking-[-1px] md:tracking-[-1.4px] text-[1.875rem] sm:text-[2.25rem] md:text-[2.625rem] lg:text-[3.5rem] leading-[1.2] md:leading-[3rem] lg:leading-[3.5rem] lg:max-w-[34rem] shrink-0"
       >
-        Ocean Freight, Built Around <span className="text-[#067ACC]">Your Cargo</span>
+        Ocean Freight, Built Around <span className="text-cornflowerblue">Your Cargo</span>
       </h2>
 
-      {/* Right Column: Paragraph */}
+      {/* Right Column / Paragraph */}
       <p 
-        className="font-sans font-normal"
-        style={{
-          width: "650px",
-          fontSize: "16px",
-          lineHeight: "1.16em",
-          color: "rgba(0, 0, 0, 0.75)",
-        }}
+        className="font-sans font-normal text-dimgray text-[0.938rem] sm:text-[1rem] leading-[1.5rem] lg:max-w-[40rem]"
       >
         Whether you&apos;re shipping a single pallet or a full container load, Orbit Shipping Services manages your ocean freight from origin to destination — port-to-port, or fully door-to-door. With established partnerships across major shipping lines and a network covering every major global route, we handle the complexity so your cargo arrives on schedule, every time.
       </p>

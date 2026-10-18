@@ -101,32 +101,18 @@ export function WhatWeOffer() {
   return (
     <section 
       ref={containerRef}
-      className="w-full max-w-[1440px] mx-auto flex flex-col items-center"
-      style={{
-        padding: "0px 60px",
-        gap: "32px",
-      }}
+      className="w-full max-w-[82.5rem] mx-auto flex flex-col items-center gap-[2rem] md:gap-[2.5rem] px-4 sm:px-6 md:px-10 lg:px-[3.75rem]"
     >
       {/* Header Row */}
-      <div className="section-header w-full flex flex-row justify-between items-end">
-        <div className="flex flex-col gap-[8px] w-[787px]">
+      <div className="section-header w-full flex flex-col sm:flex-row sm:items-end justify-between gap-4 md:gap-6">
+        <div className="flex flex-col gap-[0.5rem] max-w-[37.5rem]">
           <h2 
-            className="font-sans font-bold text-[#000000]"
-            style={{
-              fontSize: "56px",
-              lineHeight: "56px",
-              letterSpacing: "-0.0134em",
-            }}
+            className="font-sans font-medium md:font-bold text-black text-[1.875rem] sm:text-[2.25rem] md:text-[2.625rem] lg:text-[3.5rem] tracking-[-0.75px] leading-tight md:leading-[3rem]"
           >
-            What We <span className="text-[#067ACC]">Offer ?</span>
+            What We <span className="text-cornflowerblue">Offer ?</span>
           </h2>
           <p 
-            className="font-sans font-normal"
-            style={{
-              fontSize: "16px",
-              lineHeight: "1.16em",
-              color: "rgba(0, 0, 0, 0.75)",
-            }}
+            className="font-sans font-normal text-dimgray text-[0.938rem] sm:text-[1rem] leading-[1.375rem]"
           >
             From single pallets to full container loads, our ocean freight service is built to flex around how you ship — not the other way around.
           </p>
@@ -135,22 +121,15 @@ export function WhatWeOffer() {
         {/* Book Now Button */}
         <Link
           href="/quote"
-          className="flex justify-center items-center bg-[#067ACC] hover:bg-blue-600 hover:scale-105 active:scale-95 transition-all duration-200 text-white group"
-          style={{
-            padding: "7px 14px",
-            gap: "4px",
-            borderRadius: "23px",
-            fontSize: "14px",
-            lineHeight: "1.16em",
-          }}
+          className="rounded-num-23 bg-cornflowerblue hover:bg-blue-600 hover:scale-105 active:scale-95 transition-all duration-200 text-white flex items-center justify-center py-[0.437rem] px-[0.875rem] gap-[0.25rem] text-[0.875rem] w-fit shrink-0 group self-start sm:self-auto"
         >
-          Book Now
+          <span>Book Now</span>
           <Image 
             src="/images/top_right_arrow.svg" 
             alt="Book Now" 
             width={17} 
             height={17} 
-            className="w-[17px] h-[17px] brightness-0 invert group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform duration-200"
+            className="w-[1.063rem] h-[1.063rem] brightness-0 invert group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform duration-200"
           />
         </Link>
       </div>
@@ -158,68 +137,61 @@ export function WhatWeOffer() {
       {/* Bento Grid */}
       <div 
         ref={cardsRef}
-        className="w-full grid grid-cols-3 gap-[20px]"
+        className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 text-gray-100"
       >
         {CARDS.map((card, index) => {
-          const bgGradient = card.gradient || "linear-gradient(180deg, rgba(255, 255, 255, 0.15) 1%, rgba(255, 255, 255, 0.15) 12%, rgba(180, 215, 240, 0.16) 36%, rgba(6, 122, 204, 0.17) 100%)";
-          
+          const isFeatured = index === 0;
+
           return (
             <div 
               key={index}
-              className="relative overflow-hidden flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300 cursor-pointer group"
-              style={{
-                width: "100%",
-                height: "309.5px",
-                borderRadius: "24px",
-                border: "0.5px solid rgba(0, 0, 0, 0.23)",
-              }}
+              className={`group relative overflow-hidden rounded-num-16 border box-border flex flex-col justify-between p-[1.5rem] sm:p-[1.75rem] min-h-[14rem] sm:min-h-[15.5rem] md:min-h-[16.5rem] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl cursor-pointer ${
+                isFeatured
+                  ? "bg-cornflowerblue border-transparent text-white shadow-md"
+                  : "bg-white/80 border-gray-600/30 hover:border-transparent text-gray-100 hover:bg-cornflowerblue hover:text-white"
+              }`}
             >
-              {/* Inactive Gradient Background */}
-              <div 
-                className="absolute inset-0 z-0"
-                style={{ background: bgGradient }}
-              />
+              {/* Background gradient for unhovered standard cards */}
+              {!isFeatured && (
+                <div 
+                  className="absolute inset-0 pointer-events-none -z-10 opacity-70 group-hover:opacity-0 transition-opacity duration-300"
+                  style={{
+                    background: card.gradient || "linear-gradient(180deg, rgba(255, 255, 255, 0.15) 1%, rgba(180, 215, 240, 0.16) 50%, rgba(6, 122, 204, 0.12) 100%)",
+                  }}
+                />
+              )}
 
-              {/* Active Blue Background (Rises from bottom) */}
-              <div 
-                className="absolute bottom-0 left-0 right-0 z-0 bg-[#067ACC] transition-all duration-500 ease-in-out h-0 group-hover:h-full"
-              />
+              {/* Icon Container */}
+              <div className="w-[3rem] h-[3rem] relative shrink-0">
+                <Image 
+                  src={card.icon}
+                  alt={card.title}
+                  width={48}
+                  height={48}
+                  className={`w-[3rem] h-[3rem] object-contain transition-all duration-300 ${
+                    isFeatured
+                      ? "brightness-0 invert"
+                      : "brightness-0 group-hover:brightness-0 group-hover:invert"
+                  }`}
+                />
+              </div>
 
-              {/* Content Wrapper */}
-              <div className="relative z-10 flex flex-col justify-between h-full w-full" style={{ padding: "32px 54px" }}>
-                {/* Icon */}
-                <div>
-                  <Image 
-                    src={card.icon}
-                    alt={card.title}
-                    width={63}
-                    height={63}
-                    className="w-[63px] h-[63px] transition-all duration-500 brightness-0 group-hover:brightness-100"
-                  />
-                </div>
-
-                {/* Text Content */}
-                <div className="flex flex-col gap-[13px]">
-                  <h3 
-                    className="font-sans font-medium transition-colors duration-500 text-[#000000] group-hover:text-white"
-                    style={{
-                      fontSize: card.title.length > 28 ? "29px" : "32px",
-                      lineHeight: "1.16em",
-                      letterSpacing: card.title.length > 28 ? "-0.0259em" : "-0.0234em",
-                    }}
-                  >
-                    {card.title}
-                  </h3>
-                  <p 
-                    className="font-sans font-normal transition-colors duration-500 text-[rgba(0,0,0,0.75)] group-hover:text-[rgba(255,255,255,0.75)]"
-                    style={{
-                      fontSize: "16px",
-                      lineHeight: "1.16em",
-                    }}
-                  >
-                    {card.desc}
-                  </p>
-                </div>
+              {/* Text Information */}
+              <div className="flex flex-col gap-[0.5rem] pt-6">
+                <h3 
+                  className={`font-sans font-medium text-[1.25rem] sm:text-[1.375rem] leading-[1.2] transition-colors duration-300 ${
+                    isFeatured ? "text-white" : "text-gray-100 group-hover:text-white"
+                  }`}
+                >
+                  {card.title}
+                </h3>
+                <p 
+                  className={`font-sans text-[0.875rem] leading-[1.35rem] transition-colors duration-300 ${
+                    isFeatured ? "text-white/80" : "text-dimgray group-hover:text-white/85"
+                  }`}
+                >
+                  {card.desc}
+                </p>
               </div>
             </div>
           );

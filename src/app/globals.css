@@ -5,12 +5,39 @@
   --foreground: #171717;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist);
-  --font-heading: var(--font-oswald);
-  --font-serif: var(--font-instrument-serif);
+  --font-sans: var(--font-geist), Arial, Helvetica, sans-serif;
+  --font-heading: var(--font-oswald), sans-serif;
+  --font-serif: var(--font-instrument-serif), serif;
+  --font-geist: var(--font-geist), Arial, Helvetica, sans-serif;
+
+  --color-white: #ffffff;
+  --color-gray-100: #111827;
+  --color-gray-200: #051224;
+  --color-gray-300: rgba(255, 255, 255, 0.55);
+  --color-gray-400: rgba(255, 255, 255, 0.9);
+  --color-gray-500: rgba(255, 255, 255, 0.75);
+  --color-gray-600: rgba(0, 0, 0, 0.23);
+  --color-gray-700: rgba(255, 255, 255, 0.1);
+
+  --color-cornflowerblue: #067acc;
+  --color-cornflowerblue-100: #067acc;
+  --color-cornflowerblue-200: rgba(6, 122, 204, 0.05);
+
+  --color-darkslategray: #374151;
+  --color-gainsboro: #e5e7eb;
+  --color-gainsboro-100: #e5e7eb;
+  --color-gainsboro-200: rgba(229, 231, 235, 0.25);
+  --color-whitesmoke: #f4f4f5;
+  --color-dimgray: #4b5563;
+  --color-darkgray: #9ca3af;
+
+  --radius-num-12: 12px;
+  --radius-num-16: 16px;
+  --radius-num-20: 20px;
+  --radius-num-23: 23px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,5 +50,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }
